@@ -1,0 +1,10 @@
+<div>
+  <video #video width="320" height="240" autoplay muted></video>
+
+  <div *ngIf="loading">Loading camera...</div>
+  <div *ngIf="error" style="color:red">{{ error }}</div>
+  <br>
+  <button (click)="capture()">Capture Face {{embeddingCount}}</button>
+<button (click)="searchPatient()">Search Patient</button>
+
+</div>
