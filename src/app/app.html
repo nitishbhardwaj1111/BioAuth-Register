@@ -1,8 +1,9 @@
-<app-face-capture [embeddingCount]="embeddingCount" (faceCaptured)="onFaceCaptured($event)"></app-face-capture>
+<!-- <app-face-capture [embeddingCount]="embeddingCount" (faceCaptured)="onFaceCaptured($event)"></app-face-capture>
 <br>
 <input type="text" [(ngModel)]="patient.name" />
 
 <br>
 <button  (click)="createPatient()">Create patient</button>
-<button (click)="reset()">reset</button>
+<button (click)="reset()">reset</button> -->
+<app-deep-face-capture></app-deep-face-capture>
 <router-outlet />

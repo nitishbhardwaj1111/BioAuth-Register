@@ -1,0 +1,30 @@
+<div style="text-align:center" *ngIf="isBrowser">
+  <h1>Face Detection POC</h1>
+
+  <!-- Webcam -->
+  <webcam [height]="320" [width]="480"
+          [trigger]="triggerObservable"
+          (imageCapture)="handleImage($event)">
+  </webcam>
+  <br>
+  <input type="file" (change)="onFileSelected($event)" accept="image/*">
+  <br>
+  <button (click)="triggerSnapshot()">Capture</button>
+  <button (click)="sendEmbedding()">Get Embedding</button>
+  <button (click)="verifyFaceWithStoredEmbedding()">Match</button>
+
+  <div *ngIf="webcamImage">
+    <h3>Captured Image:</h3>
+    <img [src]="webcamImage?.imageAsDataUrl" alt="Captured Image" width="320">
+  </div>
+
+  <div *ngIf="embedding">
+    <h3>Embedding Length: {{embedding?.length}}</h3>
+    <pre>{{embedding | json}}</pre>
+  </div>
+
+  <div *ngIf="verificationResult">
+    <h3>Verification Result:</h3>
+    <pre>{{verificationResult | json}}</pre>
+  </div>
+</div>
